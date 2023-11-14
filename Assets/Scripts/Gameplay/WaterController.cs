@@ -87,7 +87,6 @@ public class WaterController : MonoBehaviour
             int newScore = oldScore + (int)_scoreValue; // Прибавляем новое значение к старому
             PlayerPrefs.SetInt("PlayerScore", newScore); // Сохраняем новое значение счета
             PlayerPrefs.Save(); // Обязательно сохраняем изменения
-            Debug.Log(PlayerPrefs.GetInt("PlayerScore"));
             _gameOverUpdator = false;
         }
     }
