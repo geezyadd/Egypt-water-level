@@ -81,13 +81,13 @@ public class WaterController : MonoBehaviour
         _timerValue -= Time.deltaTime;
         if (_timerValue < 1 && _gameOverUpdator)
         {
-            GameOver?.Invoke();
-            StopAllCoroutines();
-            int oldScore = PlayerPrefs.GetInt("PlayerScore", 0); // ѕолучаем старое значение счета или 0, если его нет
-            int newScore = oldScore + (int)_scoreValue; // ѕрибавл€ем новое значение к старому
-            PlayerPrefs.SetInt("PlayerScore", newScore); // —охран€ем новое значение счета
-            PlayerPrefs.Save(); // ќб€зательно сохран€ем изменени€
-            _gameOverUpdator = false;
+           GameOver?.Invoke();
+           StopAllCoroutines();
+           int oldScore = PlayerPrefs.GetInt("PlayerScore", 0); // ѕолучаем старое значение счета или 0, если его нет
+           int newScore = oldScore + (int)_scoreValue; // ѕрибавл€ем новое значение к старому
+           PlayerPrefs.SetInt("PlayerScore", newScore); // —охран€ем новое значение счета
+           PlayerPrefs.Save(); // ќб€зательно сохран€ем изменени€
+           _gameOverUpdator = false;
         }
     }
 
