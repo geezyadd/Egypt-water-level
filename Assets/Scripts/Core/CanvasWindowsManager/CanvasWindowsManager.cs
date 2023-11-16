@@ -25,17 +25,8 @@ public class CanvasWindowsManager : MonoBehaviour
     [SerializeField] private WaterController _waterController;
 
     [SerializeField] private TMP_Text _thisGameScoreText;
-
-    [SerializeField] private Button _firstTutorialCloseButton;
-    [SerializeField] private Button _secondTutorialCloseButton;
-    [SerializeField] private Button _thirdTutorialCloseButton;
-    [SerializeField] private GameObject _firstTutorial;
-    [SerializeField] private GameObject _secondTutorial;
-    [SerializeField] private GameObject _thirdTutorial;
-
     private void Start()
     {
-        Pause(true);
         _pauseButton.onClick.AddListener(() => PauseMenu(true));
         _resumeGameButton.onClick.AddListener(() => PauseMenu(false));
         _restartButton.onClick.AddListener(() => SceneLoader(SceneManager.GetActiveScene().name));
@@ -44,12 +35,6 @@ public class CanvasWindowsManager : MonoBehaviour
         _backToMenuButton.onClick.AddListener(() => PauseMenu(false));
         _looseCanvasBackToMenuButton.onClick.AddListener(() => SceneLoader("StartMenuScene"));
         _waterController.GameOver += SetLooseCanvasActive;
-        _firstTutorialCloseButton.onClick.AddListener(() => CanvasSetActive(_firstTutorial, false));
-        _firstTutorialCloseButton.onClick.AddListener(() => CanvasSetActive(_secondTutorial, true));
-        _secondTutorialCloseButton.onClick.AddListener(() => CanvasSetActive(_secondTutorial, false));
-        _secondTutorialCloseButton.onClick.AddListener(() => CanvasSetActive(_thirdTutorial, true));
-        _thirdTutorialCloseButton.onClick.AddListener(() => CanvasSetActive(_thirdTutorial, false));
-        _thirdTutorialCloseButton.onClick.AddListener(() => PauseMenu(false));
     }
     private void SetLooseCanvasActive() 
     {

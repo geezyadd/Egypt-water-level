@@ -77,8 +77,12 @@ public class WaterController : MonoBehaviour
 
     private void TimerTextAndValueUpdator() 
     {
-        _timerText.text = "Time left: " + (int)_timerValue;
-        _timerValue -= Time.deltaTime;
+        if (_gameOverUpdator) 
+        {
+            _timerText.text = "Time left: " + (int)_timerValue;
+            _timerValue -= Time.deltaTime;
+        }
+        
         if (_timerValue < 1 && _gameOverUpdator)
         {
            GameOver?.Invoke();
